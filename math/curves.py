@@ -1,6 +1,8 @@
 
 # coding: utf-8
 
+# # 平面曲线: 圆
+
 # In[4]:
 
 import numpy as np;
@@ -77,6 +79,32 @@ ax.annotate(note, xy=((x[-20]), (y[-20])), xycoords='data',
                 horizontalalignment='center', verticalalignment='center');
 
 plt.savefig("./circle.png")
+
+
+# # 空间曲线: 螺旋线
+
+# In[22]:
+
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+fig = plt.figure()
+ax = Axes3D(fig)
+
+t = np.linspace(-2, 5, 100)*np.pi;
+r = 1;
+x = r * np.cos(t);
+y = r * np.sin(t);
+z = t;
+ax.plot(x,y,z);
+
+plt.savefig('../spiral.png')
+
+
+# In[14]:
+
+ax.spines
 
 
 # In[ ]:
