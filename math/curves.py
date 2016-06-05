@@ -102,12 +102,5 @@ ax.plot(x,y,z);
 plt.savefig('../spiral.png')
 
 
-# In[14]:
-
-ax.spines
-
-
-# In[ ]:
-
 
 
