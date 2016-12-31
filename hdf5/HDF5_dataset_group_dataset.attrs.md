@@ -18,7 +18,7 @@ f = h5py.File("/home/dengdan/temp/no-use/hdftest.hdf5", "w")
 1. dataset, 类比于文件系统的文件, 可以用操作list/ndarray的方式来操作它
 2. group, 类比于文件系统的文件夹. , 可以用操作dict的方式来操作它
 
-## dataset
+# dataset
 
 
 ```python
@@ -55,7 +55,7 @@ print dset.name
     /mydataset1
 
 
-## group
+# group
 
 
 ```python
@@ -132,7 +132,7 @@ f.visit(visit_file)
     subgroup2/dataset_three
 
 
-# attrs
+# dataset.attrs
 dataset对象可以有自己的属性, 但所有属性数据的长度加起来不能超过64K, 包括属性名字.
 
 
@@ -154,6 +154,8 @@ for attr in dset.attrs:
 <hr>
 # Reference
 * http://docs.h5py.org/en/latest/quick.html
+
+markdown由jupyter notebook生成, [note book](https://github.com/dengdan/blog_posts/blob/master/hdf5/HDF5_dataset_group_dataset.attrs.ipynb)
 
 
 ```python
