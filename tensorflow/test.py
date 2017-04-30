@@ -29,16 +29,15 @@ tf.summary.scalar('squred_loss', loss)
 # training data
 x_train = [1,2,3,4]
 y_train = [0,-1,-2,-3]
-with tf.device('/cpu:0'):
-    sess = tf.Session()
+sess = tf.Session()
 
-    # 创建FilterWriter， 它负责将传入的数据写入event 文件。
-    merged = tf.summary.merge_all()
-    train_writer = tf.summary.FileWriter('/tmp/tf_test', sess.graph)
-    tf.global_variables_initializer().run(session = sess)
+# 创建FilterWriter， 它负责将传入的数据写入event 文件。
+merged = tf.summary.merge_all()
+train_writer = tf.summary.FileWriter('/tmp/tf_test', sess.graph)
+tf.global_variables_initializer().run(session = sess)
 
-    for i in range(1000):
-        summary, _, curr_W, curr_b, curr_loss  = sess.run([merged, train, W, b, loss], {x:x_train, y:y_train})
-        if i %200 == 0:
-            print("Iteration %d, W: %s, b: %s, loss: %s"%(i, curr_W, curr_b, curr_loss))
-        train_writer.add_summary(summary, i)
+for i in range(10000):
+    summary, _, curr_W, curr_b, curr_loss  = sess.run([merged, train, W, b, loss], {x:x_train, y:y_train})
+    if i %200 == 0:
+        print("Iteration %d, W: %s, b: %s, loss: %s"%(i, curr_W, curr_b, curr_loss))
+    train_writer.add_summary(summary, i)
